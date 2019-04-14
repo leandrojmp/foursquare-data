@@ -1,0 +1,36 @@
+{
+    "order" : 0,
+    "version" : 1,
+    "index_patterns" : [
+      "foursquare"
+    ],
+    "settings" : {
+      "index" : {
+        "mapping" : {
+          "ignore_malformed" : "true"
+        },
+        "refresh_interval" : "5s",
+        "number_of_shards" : "1",
+        "number_of_replicas" : "0"
+      }
+    },
+    "mappings" : {
+        "properties" : {
+            "id" : { "type" : "keyword" },
+            "tags" : { "type" : "keyword" },
+            "venue_name" : { 
+                "type" : "text",
+                "fields": {
+                    "raw": {
+                        "type": "keyword"
+                    }
+                }
+             },
+            "venue_id" : { "type" : "keyword" },
+            "geolocation" : { "type" : "geo_point" },
+            "@timestamp" : {
+                "type" : "date"
+            }
+        }
+    }
+}
