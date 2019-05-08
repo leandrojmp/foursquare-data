@@ -17,7 +17,7 @@ with open('locations.json','a') as output_file:
     for c in data['items']:
         if 'venue' in c:
             checkin = {}
-            checkin['_id'] = c['id']
+            checkin['id'] = c['id']
             checkin['timestamp'] = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(int(c['createdAt'])))
             checkin['venue_id'] = c['venue']['id']
             checkin['venue_name'] = c['venue']['name']
